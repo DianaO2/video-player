@@ -1,0 +1,76 @@
+@import './buttons.css';
+body{
+    background-color: #26B4BC;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper{
+    max-inline-size: 900px;
+
+    /* para centrar nuestro video horizontalmente */
+    margin: auto;
+}
+.player{
+    margin-block-start: 100px;
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+.player video {
+    /* Toma el 100% del ancho en el eje hotizontal */
+    inline-size: 100%;  
+    /* limito al valor dado por el diseño para que el video no sea haga mas grande que 900px */
+    /* nota:para una buena practica de programaciòn, esta responsabilidad( max-inline-size: 900px;) se la damos 
+    a un contenedor mayor (para este ejercicio se crea un div con clase wrapper)  */
+    aspect-ratio: 16/9;
+    vertical-align: middle;
+    object-fit: cover;
+    /* para que la imagen que colocamos de poster tome los mismos valores que el video 
+    y no se note si es mas pequeña */
+}
+.player-title{
+    color:white;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 20px;
+}
+.player-actions{
+    position: absolute;
+    inset: 0;
+    /*  inset: 0; permite que mi elemento tome todo el ancho y el alto igual al tamañano
+    del pafre y es equivalente a escribir las propiedades lògicas
+    inset-block-start: 0;  
+    inset-block-end: 0;  
+    inset-inline-start: 0;  
+    inset-inline-end: 0; */
+    /* border: 1px solid yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 2;  */
+    /*   z-index: 2;  permite que ese elemento que esta en la ultima capa de todos mis elementos
+    suba y podamos manipularlos en nuetra pàgina, o la otra opcion 
+    es ubicar mi element viveo al principio de la secciòn en el HTML */
+    gap: 20px ;
+}
+.player-progress{
+    /* border: 1px solid yellow; */
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline: 0;
+    display: flex;
+    padding: 10px ;
+}
+.player-progress input{
+flex: 1;
+}
+.player-overlay{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: .3s opacity;
+}
+
+.player:hover .player-overlay{
+    /* border: 10px solid pink; */
+    opacity: 1;
+}
